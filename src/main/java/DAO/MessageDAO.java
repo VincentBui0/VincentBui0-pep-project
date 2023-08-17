@@ -107,10 +107,9 @@ public class MessageDAO {
            //write PreparedStatement setString and setInt methods here.
            preparedStatement.setString(1, message.getMessage_text());
            preparedStatement.setInt(2, message_id);
-
-
            preparedStatement.executeUpdate();
-           String sql2 = "SELECT * WHERE message_id=?";
+
+           String sql2 = "SELECT * FROM message WHERE message_id=?";
            PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
            preparedStatement2.setInt(1, message_id);
            ResultSet rs = preparedStatement2.executeQuery();

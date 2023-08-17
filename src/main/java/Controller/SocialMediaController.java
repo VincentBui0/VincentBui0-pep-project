@@ -32,7 +32,7 @@ public class SocialMediaController {
     public Javalin startAPI() {
         Javalin app = Javalin.create();
         app.post("/register", this::UserRegistration);
-        app.get("/login", this::UserLogin);
+        app.post("/login", this::UserLogin);
         app.get("/messages", this::getAllMessages);
         app.post("/messages", this::createMessage);
         app.get("/messages/{message_id}", this::getMessageById);

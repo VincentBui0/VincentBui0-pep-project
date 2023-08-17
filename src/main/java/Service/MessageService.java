@@ -53,10 +53,10 @@ public class MessageService {
 
    // ## 7: Our API should be able to update a message text identified by a message ID.
    public Message updateMessage(int message_id, Message message){
-       if (message.getMessage_text().length() <= 254 || !(message.getMessage_text()).isBlank()) {
-           return messageDAO.updateMessage(message_id, message);
+       if (message.getMessage_text().length() >= 255 || message.getMessage_text().isBlank()) {
+           return null;
        }
-       return null;
+       return messageDAO.updateMessage(message_id, message);
    }
 
 
